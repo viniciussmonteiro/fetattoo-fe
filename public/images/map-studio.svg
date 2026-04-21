@@ -1,0 +1,17 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' role='img' aria-label='Mapa estilizado da Vila Mariana, São Paulo'>
+  <rect width='1200' height='800' fill='#f7f2ea'/>
+  <g stroke='#d2c2ae' stroke-width='12' fill='none' opacity='0.9'>
+    <path d='M50 120 L1150 120'/>
+    <path d='M80 250 L1140 250'/>
+    <path d='M40 390 L1160 390'/>
+    <path d='M90 530 L1120 530'/>
+    <path d='M70 680 L1140 680'/>
+    <path d='M200 40 L200 760'/>
+    <path d='M430 30 L430 770'/>
+    <path d='M660 20 L660 780'/>
+    <path d='M910 30 L910 770'/>
+  </g>
+  <circle cx='660' cy='390' r='44' fill='#9f6036'/>
+  <circle cx='660' cy='390' r='20' fill='#fff'/>
+  <text x='710' y='398' font-family='Verdana, sans-serif' font-size='34' fill='#3b2a1f'>Vila Mariana</text>
+</svg>

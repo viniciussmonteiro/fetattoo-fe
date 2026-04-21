@@ -1,0 +1,26 @@
+.list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.item summary {
+  cursor: pointer;
+  padding: 0.85rem;
+  font-weight: 700;
+}
+
+.item p {
+  padding: 0 0.85rem 0.85rem;
+  color: var(--text-secondary);
+}
+
+.item[open] {
+  border-color: var(--accent);
+}

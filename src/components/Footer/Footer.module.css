@@ -1,0 +1,55 @@
+.footer {
+  margin-top: 4rem;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 250, 244, 0.75) 0%, rgba(236, 230, 222, 0.85) 100%);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 2.6rem;
+}
+
+.col {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.title {
+  font-size: 1.35rem;
+}
+
+.text {
+  color: var(--text-secondary);
+  max-width: 38ch;
+}
+
+.linkList {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.link {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.link:hover {
+  color: var(--text-primary);
+}
+
+.bottomBar {
+  border-top: 1px solid var(--line);
+  padding-block: 1rem;
+}
+
+.copyright {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 56rem) {
+  .grid {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+}

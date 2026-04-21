@@ -1,0 +1,28 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1500' role='img' aria-label='Blackwork panther'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#fdfbf8'/>
+      <stop offset='100%' stop-color='#ede4d9'/>
+    </linearGradient>
+    <radialGradient id='glow' cx='0.2' cy='0.15' r='0.8'>
+      <stop offset='0%' stop-color='#4f4840' stop-opacity='0.28'/>
+      <stop offset='100%' stop-color='#13110f' stop-opacity='0'/>
+    </radialGradient>
+  </defs>
+  <rect width='1200' height='1500' fill='url(#bg)'/>
+  <rect width='1200' height='1500' fill='url(#glow)'/>
+  <g opacity='0.22' stroke='#13110f' stroke-width='3' fill='none'>
+    <path d='M120 1300 C 220 930, 480 900, 580 640 C 680 380, 890 320, 1060 180'/>
+    <path d='M100 1180 C 260 950, 410 760, 660 710 C 860 670, 1000 550, 1080 430'/>
+    <path d='M180 250 C 370 470, 640 430, 760 220'/>
+  </g>
+  <g opacity='0.4' stroke='#4f4840' stroke-width='2' fill='none'>
+    <circle cx='240' cy='280' r='140'/>
+    <circle cx='1030' cy='1180' r='180'/>
+  </g>
+  <rect x='70' y='70' width='1060' height='1360' rx='34' fill='none' stroke='#d5c8b7' stroke-width='4'/>
+  <g>
+    <text x='100' y='1240' font-family='Georgia, serif' font-size='70' fill='#2a2119'>Blackwork panther</text>
+    <text x='100' y='1310' font-family='Verdana, sans-serif' font-size='34' fill='#5f5448'>Coxa • Alto contraste</text>
+  </g>
+</svg>

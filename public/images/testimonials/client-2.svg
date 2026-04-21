@@ -1,0 +1,5 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140' role='img' aria-label='Avatar de cliente'>
+  <circle cx='70' cy='70' r='68' fill='#6c4b33'/>
+  <circle cx='70' cy='70' r='66' fill='none' stroke='#f9f1e8' stroke-width='2'/>
+  <text x='70' y='84' text-anchor='middle' font-family='Verdana, sans-serif' font-size='42' fill='#fff'>FR</text>
+</svg>

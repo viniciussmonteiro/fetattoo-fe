@@ -1,0 +1,17 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1200' role='img' aria-label='Retrato artístico da tatuadora Ana Noir'>
+  <defs>
+    <linearGradient id='pBg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#fefbf6'/>
+      <stop offset='100%' stop-color='#e8ddd0'/>
+    </linearGradient>
+  </defs>
+  <rect width='1000' height='1200' fill='url(#pBg)'/>
+  <ellipse cx='500' cy='420' rx='210' ry='245' fill='#dbcbc0'/>
+  <path d='M290 780 C 330 620, 670 620, 710 780 L 770 1130 L 230 1130 Z' fill='#2e251f'/>
+  <circle cx='455' cy='395' r='20' fill='#2d2219'/>
+  <circle cx='545' cy='395' r='20' fill='#2d2219'/>
+  <path d='M430 500 C 470 540, 530 540, 570 500' stroke='#2d2219' stroke-width='10' fill='none' stroke-linecap='round'/>
+  <path d='M330 335 C 430 235, 570 235, 670 335' stroke='#2d2219' stroke-width='34' fill='none' stroke-linecap='round'/>
+  <rect x='110' y='110' width='780' height='980' rx='28' fill='none' stroke='#c9b49d' stroke-width='5'/>
+  <text x='120' y='1060' font-family='Georgia, serif' font-size='56' fill='#241b14'>Ana Noir Tattoo</text>
+</svg>

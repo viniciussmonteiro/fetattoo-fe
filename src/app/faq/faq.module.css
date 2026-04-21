@@ -1,0 +1,22 @@
+.intro {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.link:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}

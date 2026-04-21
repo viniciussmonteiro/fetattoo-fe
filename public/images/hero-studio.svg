@@ -1,0 +1,26 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' role='img' aria-label='Estúdio de tatuagem com bancada e ilustrações'>
+  <defs>
+    <linearGradient id='heroBg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#fdf9f3'/>
+      <stop offset='100%' stop-color='#ded2c3'/>
+    </linearGradient>
+    <radialGradient id='heroGlow' cx='0.15' cy='0.1' r='0.9'>
+      <stop offset='0%' stop-color='#9f6036' stop-opacity='0.35'/>
+      <stop offset='100%' stop-color='#9f6036' stop-opacity='0'/>
+    </radialGradient>
+  </defs>
+  <rect width='1600' height='1000' fill='url(#heroBg)'/>
+  <rect width='1600' height='1000' fill='url(#heroGlow)'/>
+  <rect x='90' y='140' width='1420' height='720' rx='34' fill='none' stroke='#cab8a1' stroke-width='6'/>
+  <g stroke='#33251b' stroke-width='6' fill='none' opacity='0.7'>
+    <path d='M230 760 C 460 500, 780 580, 1040 340 C 1180 210, 1290 210, 1410 280'/>
+    <path d='M250 680 C 450 540, 640 450, 840 520 C 1000 580, 1220 510, 1350 420'/>
+  </g>
+  <g fill='#312419'>
+    <rect x='250' y='620' width='1100' height='28' rx='14'/>
+    <rect x='370' y='650' width='35' height='90' rx='6'/>
+    <rect x='1195' y='650' width='35' height='90' rx='6'/>
+  </g>
+  <text x='220' y='290' font-family='Georgia, serif' font-size='92' fill='#241b14'>Ana Noir Tattoo Studio</text>
+  <text x='220' y='360' font-family='Verdana, sans-serif' font-size='34' fill='#5a4f43'>Fine line • Blackwork • Floral</text>
+</svg>

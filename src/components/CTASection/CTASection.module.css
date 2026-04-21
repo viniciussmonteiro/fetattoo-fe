@@ -1,0 +1,27 @@
+.section {
+  display: grid;
+  gap: 1rem;
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 250, 244, 0.95)),
+    rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-soft);
+}
+
+.title {
+  font-size: clamp(1.65rem, 3.6vw, 2.35rem);
+}
+
+.description {
+  margin-top: 0.5rem;
+  color: var(--text-secondary);
+  max-width: 62ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
