@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./Hero.module.css";
 import { Button } from "@/components/Button/Button";
+import { Container } from "@/components/Container/Container";
 
 type HeroProps = {
   name: string;
@@ -25,7 +26,7 @@ export function Hero({
 }: HeroProps) {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
-      <div className={`container ${styles.layout}`}>
+      <Container className={styles.layout}>
         <div className={styles.content}>
           <span className="eyebrow">Portfólio profissional de tatuagem</span>
           <h1 id="hero-title" className={styles.title}>
@@ -69,7 +70,7 @@ export function Hero({
             className={styles.media}
           />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

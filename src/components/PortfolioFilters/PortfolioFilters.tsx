@@ -7,12 +7,14 @@ type PortfolioFiltersProps = {
   selectedCategory: "Todas" | PortfolioCategory;
   healedOnly: boolean;
   beforeAfterOnly: boolean;
+  featuredOnly: boolean;
 };
 
 function buildHref(
   category: "Todas" | PortfolioCategory,
   healedOnly: boolean,
-  beforeAfterOnly: boolean
+  beforeAfterOnly: boolean,
+  featuredOnly: boolean
 ): string {
   const params = new URLSearchParams();
 
@@ -28,11 +30,15 @@ function buildHref(
     params.set("beforeAfter", "1");
   }
 
+  if (featuredOnly) {
+    params.set("destaque", "1");
+  }
+
   const query = params.toString();
   return query ? `/portfolio?${query}` : "/portfolio";
 }
 
-export function PortfolioFilters({ selectedCategory, healedOnly, beforeAfterOnly }: PortfolioFiltersProps) {
+export function PortfolioFilters({ selectedCategory, healedOnly, beforeAfterOnly, featuredOnly }: PortfolioFiltersProps) {
   return (
     <section className={styles.wrap} aria-label="Filtros da galeria">
       <div className={styles.group}>
@@ -41,7 +47,7 @@ export function PortfolioFilters({ selectedCategory, healedOnly, beforeAfterOnly
           return (
             <Link
               key={category}
-              href={buildHref(category, healedOnly, beforeAfterOnly)}
+              href={buildHref(category, healedOnly, beforeAfterOnly, featuredOnly)}
               className={`${styles.filter} ${active ? styles.active : ""}`.trim()}
               aria-current={active ? "page" : undefined}
             >
@@ -53,18 +59,25 @@ export function PortfolioFilters({ selectedCategory, healedOnly, beforeAfterOnly
 
       <div className={styles.group}>
         <Link
-          href={buildHref(selectedCategory, !healedOnly, beforeAfterOnly)}
+          href={buildHref(selectedCategory, !healedOnly, beforeAfterOnly, featuredOnly)}
           className={`${styles.filter} ${healedOnly ? styles.active : ""}`.trim()}
           aria-pressed={healedOnly}
         >
           Apenas cicatrizadas
         </Link>
         <Link
-          href={buildHref(selectedCategory, healedOnly, !beforeAfterOnly)}
+          href={buildHref(selectedCategory, healedOnly, !beforeAfterOnly, featuredOnly)}
           className={`${styles.filter} ${beforeAfterOnly ? styles.active : ""}`.trim()}
           aria-pressed={beforeAfterOnly}
         >
           Apenas antes/depois
+        </Link>
+        <Link
+          href={buildHref(selectedCategory, healedOnly, beforeAfterOnly, !featuredOnly)}
+          className={`${styles.filter} ${featuredOnly ? styles.active : ""}`.trim()}
+          aria-pressed={featuredOnly}
+        >
+          Apenas destaque
         </Link>
         <Link href="/portfolio" className={styles.filter}>
           Limpar filtros

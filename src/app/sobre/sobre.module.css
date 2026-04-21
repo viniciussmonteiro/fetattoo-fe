@@ -8,7 +8,8 @@
   gap: 0.9rem;
 }
 
-.card {
+.card,
+.socialCard {
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background: var(--surface);
@@ -18,11 +19,13 @@
   gap: 0.5rem;
 }
 
-.card h2 {
+.card h2,
+.socialCard h2 {
   font-size: 1.5rem;
 }
 
-.card p {
+.card p,
+.socialCard p {
   color: var(--text-secondary);
 }
 

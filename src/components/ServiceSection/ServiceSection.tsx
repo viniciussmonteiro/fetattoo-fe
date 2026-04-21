@@ -1,18 +1,5 @@
 import styles from "./ServiceSection.module.css";
-
-const doesItems = [
-  "Fine line, blackwork e floral autoral",
-  "Tatuagem personalizada baseada em briefing",
-  "Flash day com seleção mensal",
-  "Projetos autorais de média e grande escala",
-  "Cover-up mediante avaliação da peça anterior"
-];
-
-const doesntItems = [
-  "Cópia exata de tatuagem de outro artista",
-  "Projetos fora da linha estética acordada",
-  "Atendimento sem consulta prévia de viabilidade"
-];
+import { servicesOffered, servicesNotOffered } from "@/data/services";
 
 type ServiceSectionProps = {
   title?: string;
@@ -35,7 +22,7 @@ export function ServiceSection({ title = "Serviços e estilos atendidos" }: Serv
         <article className={styles.card}>
           <h3>O que faço</h3>
           <ul>
-            {doesItems.map((item) => (
+            {servicesOffered.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
@@ -44,7 +31,7 @@ export function ServiceSection({ title = "Serviços e estilos atendidos" }: Serv
         <article className={styles.card}>
           <h3>O que não faço</h3>
           <ul>
-            {doesntItems.map((item) => (
+            {servicesNotOffered.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>

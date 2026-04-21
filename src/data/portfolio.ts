@@ -20,6 +20,7 @@ export type PortfolioItem = {
   beforeAfter: boolean;
   closeUp?: boolean;
   fresh?: boolean;
+  featured?: boolean;
 };
 
 export const portfolioCategories: Array<"Todas" | PortfolioCategory> = [
@@ -46,7 +47,8 @@ export const portfolioItems: PortfolioItem[] = [
     healed: true,
     beforeAfter: false,
     closeUp: true,
-    fresh: false
+    fresh: false,
+    featured: true
   },
   {
     id: 2,
@@ -59,7 +61,8 @@ export const portfolioItems: PortfolioItem[] = [
     healed: false,
     beforeAfter: false,
     closeUp: false,
-    fresh: true
+    fresh: true,
+    featured: true
   },
   {
     id: 3,
@@ -72,7 +75,8 @@ export const portfolioItems: PortfolioItem[] = [
     healed: true,
     beforeAfter: false,
     closeUp: true,
-    fresh: false
+    fresh: false,
+    featured: true
   },
   {
     id: 4,
@@ -85,7 +89,8 @@ export const portfolioItems: PortfolioItem[] = [
     healed: false,
     beforeAfter: false,
     closeUp: false,
-    fresh: true
+    fresh: true,
+    featured: true
   },
   {
     id: 5,
@@ -137,7 +142,8 @@ export const portfolioItems: PortfolioItem[] = [
     healed: false,
     beforeAfter: true,
     closeUp: false,
-    fresh: true
+    fresh: true,
+    featured: true
   },
   {
     id: 9,

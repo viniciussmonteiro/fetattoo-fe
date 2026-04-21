@@ -1,0 +1,31 @@
+.preview {
+  border: 1px dashed #b8a590;
+  border-radius: 0.6rem;
+  background: #fff7f0;
+  padding: 0.85rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.preview h3 {
+  font-size: 1.25rem;
+}
+
+.preview p,
+.preview small {
+  color: #6d645b;
+}
+
+.actions {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.actions button {
+  border: 1px solid #d0bea8;
+  border-radius: 999px;
+  min-height: 2.3rem;
+  padding: 0.3rem 0.8rem;
+  background: #fff;
+  font-weight: 700;
+}

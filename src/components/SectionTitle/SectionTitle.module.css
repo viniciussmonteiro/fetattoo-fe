@@ -1,0 +1,10 @@
+.wrap {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}

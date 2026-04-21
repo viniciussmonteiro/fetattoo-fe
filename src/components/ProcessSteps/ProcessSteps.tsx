@@ -1,14 +1,5 @@
 import styles from "./ProcessSteps.module.css";
-
-const steps = [
-  "Cliente entra em contato",
-  "Envia referência e ideia",
-  "Recebe orçamento",
-  "Faz sinal",
-  "Agenda data",
-  "Realiza sessão",
-  "Recebe cuidados pós-tatuagem"
-];
+import { processSteps } from "@/data/process";
 
 export function ProcessSteps() {
   return (
@@ -21,10 +12,13 @@ export function ProcessSteps() {
       </div>
 
       <ol className={styles.list}>
-        {steps.map((step, index) => (
-          <li key={step} className={styles.item}>
-            <span className={styles.index}>{String(index + 1).padStart(2, "0")}</span>
-            <p>{step}</p>
+        {processSteps.map((step) => (
+          <li key={step.id} className={styles.item}>
+            <span className={styles.index}>{String(step.id).padStart(2, "0")}</span>
+            <div className={styles.content}>
+              <p>{step.title}</p>
+              <small>{step.detail}</small>
+            </div>
           </li>
         ))}
       </ol>

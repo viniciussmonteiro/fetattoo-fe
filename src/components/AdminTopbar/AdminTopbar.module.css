@@ -1,0 +1,27 @@
+.topbar {
+  padding: 1rem;
+  border-bottom: 1px solid #d4c7b8;
+  background: #f8f2ea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.topbar h1 {
+  font-size: 1.55rem;
+}
+
+.topbar p {
+  color: #655a50;
+  font-size: 0.92rem;
+}
+
+.userButton {
+  border: 1px solid #ceb9a1;
+  border-radius: 999px;
+  min-height: 2.35rem;
+  background: #fff;
+  padding: 0.3rem 0.8rem;
+  font-weight: 700;
+}

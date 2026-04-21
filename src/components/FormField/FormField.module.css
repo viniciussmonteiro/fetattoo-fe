@@ -1,0 +1,28 @@
+.field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.field label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.field input,
+.field textarea,
+.field select {
+  border: 1px solid #d4c7b8;
+  border-radius: 0.45rem;
+  background: #fff;
+  min-height: 2.5rem;
+  padding: 0.55rem 0.65rem;
+}
+
+.field textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.field small {
+  color: #6d645b;
+}

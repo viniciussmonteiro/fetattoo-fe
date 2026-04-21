@@ -1,5 +1,5 @@
 import styles from "./SocialLinks.module.css";
-import { siteConfig } from "@/app/globals";
+import { socialLinks } from "@/data/socialLinks";
 
 type SocialLinksProps = {
   direction?: "row" | "column";
@@ -8,21 +8,22 @@ type SocialLinksProps = {
 export function SocialLinks({ direction = "row" }: SocialLinksProps) {
   return (
     <ul className={`${styles.list} ${direction === "column" ? styles.column : ""}`.trim()} aria-label="Redes sociais">
-      <li>
-        <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer" className={styles.link}>
-          Instagram
-        </a>
-      </li>
-      <li>
-        <a href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer" className={styles.link}>
-          WhatsApp
-        </a>
-      </li>
-      <li>
-        <a href={`mailto:${siteConfig.email}`} className={styles.link}>
-          E-mail
-        </a>
-      </li>
+      {socialLinks.map((link) => {
+        const isExternal = link.href.startsWith("http");
+
+        return (
+          <li key={link.id}>
+            <a
+              href={link.href}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
+              className={styles.link}
+            >
+              {link.shortLabel}
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 }

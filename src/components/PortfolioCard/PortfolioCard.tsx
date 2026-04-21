@@ -15,11 +15,12 @@ export function PortfolioCard({ item, priority = false }: PortfolioCardProps) {
           src={item.image}
           alt={item.alt}
           fill
-          priority={priority}
+          {...(priority ? { priority: true } : { loading: "lazy" })}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={styles.media}
         />
         <div className={styles.badges}>
+          {item.featured ? <span className={styles.badge}>Destaque</span> : null}
           {item.healed ? <span className={styles.badge}>Cicatrizada</span> : <span className={styles.badge}>Recém-feita</span>}
           {item.beforeAfter ? <span className={styles.badge}>Antes/Depois</span> : null}
           {item.closeUp ? <span className={styles.badge}>Close</span> : null}

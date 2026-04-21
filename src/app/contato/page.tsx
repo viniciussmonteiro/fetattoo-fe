@@ -1,9 +1,10 @@
 import Image from "next/image";
 import styles from "./contato.module.css";
 import { createPageMetadata } from "@/lib/metadata";
-import { siteConfig } from "@/app/globals";
+import { artistProfile } from "@/data/artist";
 import { ContactForm } from "@/components/ContactForm/ContactForm";
 import { SocialLinks } from "@/components/SocialLinks/SocialLinks";
+import { Button } from "@/components/Button/Button";
 
 export const metadata = createPageMetadata({
   title: "Agendamento e Contato",
@@ -30,16 +31,19 @@ export default function ContatoPage() {
           <article className={styles.infoCard}>
             <h2>Canais de atendimento</h2>
             <p>
-              WhatsApp: <a href={siteConfig.whatsappUrl}>falar agora</a>
+              WhatsApp: <a href={artistProfile.whatsappUrl}>falar agora</a>
             </p>
             <p>
-              E-mail: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+              E-mail: <a href={`mailto:${artistProfile.email}`}>{artistProfile.email}</a>
             </p>
             <p>
-              Local: {siteConfig.neighborhood}, {siteConfig.city}
+              Local: {artistProfile.neighborhood}, {artistProfile.city}
             </p>
-            <p>Horário: terça a sábado, 10h às 19h</p>
+            <p>Horário: {artistProfile.workingHours}</p>
             <SocialLinks direction="column" />
+            <Button href={artistProfile.whatsappUrl} target="_blank" rel="noreferrer" variant="primary">
+              Agendar pelo WhatsApp
+            </Button>
           </article>
 
           <ContactForm />
@@ -51,14 +55,10 @@ export default function ContatoPage() {
           <div>
             <h2>Estúdio em São Paulo</h2>
             <p>
-              Local de fácil acesso na Vila Mariana. Endereço completo compartilhado após confirmação do agendamento.
+              Local de fácil acesso na {artistProfile.neighborhood}. Endereço completo compartilhado após confirmação do
+              agendamento.
             </p>
-            <a
-              href="https://maps.google.com/?q=Vila+Mariana,+Sao+Paulo"
-              target="_blank"
-              rel="noreferrer"
-              className={styles.mapLink}
-            >
+            <a href={artistProfile.mapUrl} target="_blank" rel="noreferrer" className={styles.mapLink}>
               Ver região no mapa
             </a>
           </div>
@@ -69,6 +69,7 @@ export default function ContatoPage() {
               alt="Mapa ilustrativo da região da Vila Mariana em São Paulo"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
+              loading="lazy"
             />
           </div>
         </div>

@@ -1,0 +1,27 @@
+.card {
+  border: 1px solid #d4c7b8;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 0.95rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #695f54;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.value {
+  font-size: 2rem;
+  line-height: 1;
+  font-family: var(--font-heading), serif;
+}
+
+.hint {
+  color: #6d645b;
+}

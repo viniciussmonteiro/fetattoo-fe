@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./Footer.module.css";
-import { navigationLinks, siteConfig } from "@/app/globals";
+import { navigationLinks, artistProfile } from "@/data/artist";
 import { SocialLinks } from "@/components/SocialLinks/SocialLinks";
 
 export function Footer() {
@@ -10,9 +10,9 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <section className={styles.col} aria-label="Informações da artista">
-          <h2 className={styles.title}>{siteConfig.name}</h2>
+          <h2 className={styles.title}>{artistProfile.name}</h2>
           <p className={styles.text}>
-            Estúdio em {siteConfig.neighborhood}, {siteConfig.city}. Atendimento com hora marcada e projeto personalizado.
+            Estúdio em {artistProfile.neighborhood}, {artistProfile.city}. Atendimento com hora marcada e projeto personalizado.
           </p>
           <SocialLinks />
         </section>
@@ -49,13 +49,13 @@ export function Footer() {
           <h2 className={styles.title}>Contato e políticas</h2>
           <ul className={styles.linkList}>
             <li>
-              <a className={styles.link} href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">
-                WhatsApp: {siteConfig.phone}
+              <a className={styles.link} href={artistProfile.whatsappUrl} target="_blank" rel="noreferrer">
+                WhatsApp: {artistProfile.phone}
               </a>
             </li>
             <li>
-              <a className={styles.link} href={`mailto:${siteConfig.email}`}>
-                {siteConfig.email}
+              <a className={styles.link} href={`mailto:${artistProfile.email}`}>
+                {artistProfile.email}
               </a>
             </li>
             <li>
@@ -74,7 +74,9 @@ export function Footer() {
 
       <div className={styles.bottomBar}>
         <div className="container">
-          <p className={styles.copyright}>© {year} {siteConfig.name}. Todos os direitos reservados.</p>
+          <p className={styles.copyright}>
+            © {year} {artistProfile.name}. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>

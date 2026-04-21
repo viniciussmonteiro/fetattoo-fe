@@ -1,0 +1,24 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.published {
+  background: rgba(31, 110, 75, 0.18);
+  color: #16563a;
+}
+
+.draft {
+  background: rgba(159, 96, 54, 0.18);
+  color: #6f3a18;
+}
+
+.archived {
+  background: rgba(84, 84, 84, 0.18);
+  color: #3e3e3e;
+}

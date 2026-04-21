@@ -1,0 +1,26 @@
+.wrapper {
+  display: grid;
+  min-height: 100dvh;
+  background: #f2ece4;
+}
+
+.mainArea {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.content {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 64rem) {
+  .wrapper {
+    grid-template-columns: 17rem 1fr;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+}

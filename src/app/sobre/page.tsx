@@ -1,8 +1,10 @@
 import styles from "./sobre.module.css";
 import { createPageMetadata } from "@/lib/metadata";
+import { artistProfile } from "@/data/artist";
 import { AboutSection } from "@/components/AboutSection/AboutSection";
 import { ServiceSection } from "@/components/ServiceSection/ServiceSection";
 import { CTASection } from "@/components/CTASection/CTASection";
+import { SocialLinks } from "@/components/SocialLinks/SocialLinks";
 
 export const metadata = createPageMetadata({
   title: "Sobre",
@@ -19,8 +21,8 @@ export default function SobrePage() {
           <span className="eyebrow">Sobre a artista</span>
           <h1 className="sectionTitle">Arte autoral com linguagem elegante e contemporânea</h1>
           <p className="sectionLead">
-            Ana Noir desenvolve tatuagens personalizadas para pessoas que buscam estética refinada, leitura clara e composição
-            pensada para o corpo.
+            {artistProfile.name} desenvolve tatuagens personalizadas para pessoas que buscam estética refinada, leitura clara e
+            composição pensada para o corpo.
           </p>
         </div>
       </section>
@@ -36,24 +38,29 @@ export default function SobrePage() {
           <article className={styles.card}>
             <h2>Experiência</h2>
             <p>
-              Mais de 7 anos no mercado com foco em execução limpa, atendimento transparente e construção de projetos em etapas
-              quando necessário.
+              Mais de {artistProfile.experienceYears} anos no mercado com foco em execução limpa, atendimento transparente e
+              construção de projetos em etapas quando necessário.
             </p>
           </article>
           <article className={styles.card}>
             <h2>Inspiração artística</h2>
-            <p>
-              Referências em ilustração botânica, gravura e design editorial. O objetivo é criar peças delicadas e marcantes ao
-              mesmo tempo.
-            </p>
+            <p>{artistProfile.inspirations.join(", ")}. O objetivo é criar peças delicadas e marcantes ao mesmo tempo.</p>
           </article>
           <article className={styles.card}>
-            <h2>Atendimento em São Paulo</h2>
+            <h2>Atendimento em {artistProfile.city}</h2>
             <p>
-              Estúdio localizado na Vila Mariana, com ambiente reservado, assepsia rigorosa e agenda por horário para melhor
-              experiência.
+              Estúdio localizado na {artistProfile.neighborhood}, com ambiente reservado, assepsia rigorosa e agenda por horário
+              para melhor experiência.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className={`container ${styles.socialCard}`}>
+          <h2>Redes e contato profissional</h2>
+          <p>Conheça bastidores, trabalhos recentes e datas de agenda diretamente nos canais oficiais.</p>
+          <SocialLinks />
         </div>
       </section>
 

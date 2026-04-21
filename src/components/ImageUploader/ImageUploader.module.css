@@ -1,0 +1,16 @@
+.uploader {
+  display: grid;
+  gap: 0.35rem;
+  border: 1px dashed #c7b5a1;
+  border-radius: 0.6rem;
+  padding: 0.75rem;
+  background: #faf6f1;
+}
+
+.uploader span {
+  font-weight: 700;
+}
+
+.uploader small {
+  color: #6d645b;
+}

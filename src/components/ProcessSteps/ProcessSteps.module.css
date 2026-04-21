@@ -24,8 +24,18 @@
   background: var(--surface);
 }
 
-.item p {
-  font-weight: 600;
+.content {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.content p {
+  font-weight: 700;
+}
+
+.content small {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
 }
 
 .index {

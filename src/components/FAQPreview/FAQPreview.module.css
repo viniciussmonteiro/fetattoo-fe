@@ -1,0 +1,18 @@
+.link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 0.45rem 0.95rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.link:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+}

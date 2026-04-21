@@ -1,0 +1,43 @@
+.sidebar {
+  border-right: 1px solid #cdbca8;
+  background: #1f1b18;
+  color: #f7efe4;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.brand {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-heading), serif;
+  font-size: 1.4rem;
+}
+
+.brand span {
+  color: #d8c9bb;
+  font-size: 0.9rem;
+}
+
+.navList {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.link {
+  display: inline-flex;
+  min-height: 2.3rem;
+  align-items: center;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.45rem;
+  color: #f7efe4;
+  font-weight: 700;
+}
+
+.link:hover {
+  background: #2e2824;
+}

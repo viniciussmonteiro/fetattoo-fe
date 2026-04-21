@@ -1,35 +1,66 @@
-# Ana Noir Tattoo - Portfólio Profissional (Next.js)
+# Ana Noir Tattoo - Portfólio Profissional
 
-Site de portfólio profissional para tatuadora, construído com **Node.js + Next.js (App Router) + CSS puro/CSS Modules**, com foco em:
+Projeto em **Node.js + Next.js (App Router) + TypeScript + CSS puro/CSS Modules** para um site de portfólio de tatuadora com foco em:
 
-- visual forte, premium e mobile-first
-- performance e carregamento rápido
-- SEO básico por página
-- acessibilidade semântica e navegação clara
-- estrutura escalável para integração futura com CMS
+- identidade visual forte e premium
+- galeria profissional com filtros
+- conversão para agendamento
+- base escalável para CMS, banco, storage e painel admin
 
 ## Stack
 
 - Next.js (App Router)
 - React
 - TypeScript
-- CSS puro + CSS Modules
+- CSS global + CSS Modules
 - `next/image` para otimização de imagens
 
-## Requisitos atendidos
+## Funcionalidades implementadas
 
-- App Router em `src/app`
-- Estrutura componentizada e escalável
-- Sem Tailwind
-- Sem bibliotecas visuais pesadas
-- Metadata por página
-- HTML semântico e labels de formulário
-- Alt descritivo nas imagens
-- Hero com imagem `priority`
-- Galerias e imagens secundárias com lazy loading padrão
-- Layout mobile-first com boa responsividade
+### Site público
+- Home completa com:
+  - Hero com prioridade de carregamento da imagem principal
+  - estilos em destaque
+  - prévia do portfólio
+  - sobre da artista
+  - serviços e estilos atendidos
+  - processo de atendimento
+  - depoimentos
+  - FAQ resumido
+  - CTA e contato rápido
+- Portfólio com:
+  - filtros por categoria
+  - filtros de cicatrizadas / antes-depois / destaque
+  - grid responsivo com cards ricos em informações
+- Páginas institucionais:
+  - `/sobre`
+  - `/faq` (accordion acessível com `details/summary`)
+  - `/cuidados`
+  - `/contato` com formulário + WhatsApp + redes + mapa
 
-## Estrutura de pastas
+### Área administrativa (base mock)
+- Rotas em `/admin` com layout separado (sidebar + topbar)
+- Dashboard inicial
+- Gestão mock de:
+  - portfólio
+  - bio
+  - redes sociais
+  - FAQ
+  - depoimentos
+  - configurações
+
+### Base para integrações futuras
+- Repositórios e serviços em `src/lib/server` e `src/lib/repositories`
+- Hooks iniciais em `src/hooks`
+- Rotas API mock em `src/app/api` para:
+  - contato
+  - portfólio
+  - bio
+  - faq
+  - depoimentos
+  - redes sociais
+
+## Estrutura principal
 
 ```txt
 src/
@@ -41,55 +72,58 @@ src/
 │   ├── contato/page.tsx
 │   ├── faq/page.tsx
 │   ├── cuidados/page.tsx
-│   └── globals.tsx
+│   ├── admin/
+│   └── api/
 ├── components/
 │   ├── Header/
 │   ├── Footer/
+│   ├── Button/
+│   ├── SectionTitle/
+│   ├── Container/
 │   ├── Hero/
-│   ├── PortfolioGrid/
-│   ├── PortfolioCard/
-│   ├── PortfolioFilters/
-│   ├── AboutSection/
-│   ├── ContactForm/
-│   ├── FAQAccordion/
-│   └── Button/
+│   ├── Portfolio*/
+│   ├── FeaturedStyles/
+│   ├── HomePortfolioPreview/
+│   ├── AboutPreview/
+│   ├── FAQPreview/
+│   └── Admin*/
 ├── data/
-│   ├── portfolio.tsx
-│   ├── faq.tsx
-│   └── testimonials.tsx
-├── styles/
-│   ├── variables.css
-│   └── utilities.css
-└── lib/
-    └── metadata.tsx
+│   ├── portfolio.ts
+│   ├── faq.ts
+│   ├── testimonials.ts
+│   ├── artist.ts
+│   ├── services.ts
+│   ├── socialLinks.ts
+│   ├── process.ts
+│   └── care.ts
+├── hooks/
+├── lib/
+│   ├── metadata.ts
+│   ├── server/
+│   └── repositories/
+└── styles/
+    ├── reset.css
+    ├── variables.css
+    ├── typography.css
+    └── utilities.css
 ```
 
-## Rotas implementadas
+## Rodando localmente
 
-Obrigatórias:
-
-- `/` Home
-- `/portfolio`
-- `/sobre`
-- `/contato`
-- `/faq`
-- `/cuidados`
-
-Opcionalmente já previstas:
-
-- `/flash`
-- `/autorais`
-- `/blog`
-
-## Como rodar localmente
-
-### 1) Instalar dependências
+### 1. Instalar dependências
 
 ```bash
 npm install
 ```
 
-### 2) Iniciar ambiente de desenvolvimento
+Se ocorrer erro de permissão de cache no Windows (`EPERM`), use:
+
+```bash
+npm config set cache .npm-cache --location=project
+npm install
+```
+
+### 2. Rodar em desenvolvimento
 
 ```bash
 npm run dev
@@ -97,23 +131,45 @@ npm run dev
 
 Acesse: `http://localhost:3000`
 
-### 3) Build de produção
+### 3. Configurar variáveis de ambiente
+
+Copie `.env.example` para `.env.local`:
+
+```bash
+cp .env.example .env.local
+```
+
+Variáveis importantes:
+
+- `NEXT_PUBLIC_SITE_URL`: URL canônica usada em metadata/SEO
+- `BACKEND_API_URL`: URL do back-end para proxy de integração da rota `/api/contact`
+
+### 4. Build de produção
 
 ```bash
 npm run build
 npm run start
 ```
 
-## Conteúdo mockado
+### 5. Lint
 
-Dados locais prontos para futura migração para CMS:
+```bash
+npm run lint
+```
 
-- `src/data/portfolio.tsx`
-- `src/data/faq.tsx`
-- `src/data/testimonials.tsx`
+## SEO, acessibilidade e performance
 
-## Próximos passos sugeridos
+- Metadata por página
+- Estrutura semântica com headings claros
+- Alt descritivo nas imagens
+- Labels em formulários
+- Contraste e foco visível
+- Mobile-first
+- Lazy loading em imagens fora da primeira dobra
+- `priority` na imagem principal da Home
 
-- Integrar formulário com e-mail transacional ou API do WhatsApp
-- Conectar dados de galeria a um CMS headless
-- Adicionar painel administrativo para atualizar portfólio/FAQ/depoimentos
+## Observações
+
+- O projeto está pronto para desenvolvimento local.
+- O painel admin e as APIs internas continuam em modo mock, com arquitetura preparada para CRUD real.
+- A rota de contato do front está preparada para integrar com o back-end (`BACKEND_API_URL`) sem expor o endpoint público diretamente ao navegador.
