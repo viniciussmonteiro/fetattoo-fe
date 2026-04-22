@@ -1,14 +1,15 @@
 import { createPageMetadata } from "@/lib/metadata";
-import { portfolioCategories, portfolioItems, type PortfolioCategory } from "@/data/portfolio";
+import type { PortfolioCategory } from "@/data/portfolio";
 import { PortfolioHero } from "@/components/PortfolioHero/PortfolioHero";
 import { PortfolioFilters } from "@/components/PortfolioFilters/PortfolioFilters";
 import { PortfolioGrid } from "@/components/PortfolioGrid/PortfolioGrid";
 import { CTASection } from "@/components/CTASection/CTASection";
+import { listPortfolioCategories, listPortfolioItems } from "@/lib/repositories/portfolio-repository";
 
 export const metadata = createPageMetadata({
   title: "Portfólio",
   description:
-    "Galeria profissional de tatuagens da Ana Noir Tattoo com filtros por estilo, técnica, região do corpo e destaques.",
+    "Galeria profissional de tatuagens da Fernanda Borges com foco em Blackwork e Black & Red, com filtros por categoria e técnica.",
   path: "/portfolio"
 });
 
@@ -21,26 +22,24 @@ type PortfolioPageProps = {
   }>;
 };
 
-function isValidCategory(value: string | undefined): value is "Todas" | PortfolioCategory {
-  return !!value && portfolioCategories.includes(value as "Todas" | PortfolioCategory);
-}
-
 export default async function PortfolioPage({ searchParams }: PortfolioPageProps) {
   const resolvedSearchParams = await searchParams;
+  const categories = await listPortfolioCategories();
 
-  const selectedCategory = isValidCategory(resolvedSearchParams?.categoria)
-    ? resolvedSearchParams.categoria
+  const requestedCategory = resolvedSearchParams?.categoria;
+  const selectedCategory = requestedCategory && categories.includes(requestedCategory as "Todas" | PortfolioCategory)
+    ? (requestedCategory as "Todas" | PortfolioCategory)
     : "Todas";
+
   const healedOnly = resolvedSearchParams?.healed === "1";
   const beforeAfterOnly = resolvedSearchParams?.beforeAfter === "1";
   const featuredOnly = resolvedSearchParams?.destaque === "1";
 
-  const filteredItems = portfolioItems.filter((item) => {
-    const matchCategory = selectedCategory === "Todas" ? true : item.category === selectedCategory;
-    const matchHealed = healedOnly ? item.healed : true;
-    const matchBeforeAfter = beforeAfterOnly ? item.beforeAfter : true;
-    const matchFeatured = featuredOnly ? !!item.featured : true;
-    return matchCategory && matchHealed && matchBeforeAfter && matchFeatured;
+  const filteredItems = await listPortfolioItems({
+    ...(selectedCategory !== "Todas" ? { category: selectedCategory } : {}),
+    ...(healedOnly ? { healed: true } : {}),
+    ...(beforeAfterOnly ? { beforeAfter: true } : {}),
+    ...(featuredOnly ? { featured: true } : {})
   });
 
   return (
@@ -51,6 +50,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
         <div className="container flow">
           <PortfolioFilters
             selectedCategory={selectedCategory}
+            categories={categories}
             healedOnly={healedOnly}
             beforeAfterOnly={beforeAfterOnly}
             featuredOnly={featuredOnly}

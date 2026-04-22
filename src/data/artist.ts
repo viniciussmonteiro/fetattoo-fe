@@ -7,7 +7,7 @@ export type ArtistProfile = {
   neighborhood: string;
   studioName: string;
   availability: string;
-  experienceYears: number;
+  experienceSummary: string;
   favoriteStyles: string[];
   inspirations: string[];
   email: string;
@@ -27,31 +27,31 @@ export type ArtistProfile = {
 };
 
 export const artistProfile: ArtistProfile = {
-  name: "Ana Noir Tattoo",
-  tagline: "Fine line, blackwork e floral",
-  bioShort: "Tatuagens autorais com traço delicado, composição elegante e identidade artística.",
+  name: "Fernanda Borges",
+  tagline: "Blackwork • Black & Red",
+  bioShort: "Tatuagens autorais com identidade forte, contraste preciso e composição profissional.",
   bioLong:
-    "Sou Ana Noir, tatuadora em São Paulo com foco em projetos autorais em fine line, blackwork e floral contemporâneo. Meu atendimento é consultivo: cada tatuagem nasce de um briefing detalhado para alinhar estética, anatomia e significado.",
-  city: "São Paulo",
-  neighborhood: "Vila Mariana",
-  studioName: "Noir Atelier Tattoo",
+    "Fernanda Borges atende em Pinheiros, SP, com foco em Blackwork e Black & Red, desenvolvendo projetos autorais com abordagem técnica e estética consistente. O processo de atendimento é estruturado para alinhar proposta visual, posicionamento no corpo e execução segura.",
+  city: "SP",
+  neighborhood: "Pinheiros",
+  studioName: "Atendimento em Pinheiros",
   availability: "Agenda mensal aberta",
-  experienceYears: 7,
-  favoriteStyles: ["Fine line botânico", "Blackwork de contraste", "Floral de fluxo longo"],
-  inspirations: ["Ilustração botânica", "Gravura contemporânea", "Design editorial"],
-  email: "contato@ananoirtattoo.com.br",
-  phone: "(11) 99999-9999",
-  whatsappUrl: "https://wa.me/5511999999999?text=Oi%2C%20Ana%20Noir!%20Quero%20agendar%20uma%20tatuagem.",
-  instagramUrl: "https://instagram.com/ananoirtattoo",
-  mapUrl: "https://maps.google.com/?q=Vila+Mariana,+Sao+Paulo",
-  workingHours: "Terça a sábado, das 10h às 19h",
+  experienceSummary: "Atendimento profissional com foco em direção artística e execução consistente.",
+  favoriteStyles: ["Blackwork", "Black & Red"],
+  inspirations: ["Composição gráfica", "Contraste de massas", "Linguagem autoral contemporânea"],
+  email: "contato@exemplo.com",
+  phone: "Atendimento via WhatsApp",
+  whatsappUrl: "https://api.whatsapp.com/message/R4LIOWS74LHWP1?autoload=1&app_absent=0&utm_source=ig",
+  instagramUrl: "https://www.instagram.com/fe.borgesink/",
+  mapUrl: "https://maps.google.com/?q=Pinheiros,+Sao+Paulo",
+  workingHours: "Atendimento com horário marcado",
   portraitImage: {
     src: "/images/artist-portrait.svg",
-    alt: "Retrato profissional da tatuadora Ana Noir no estúdio"
+    alt: "Retrato profissional da tatuadora Fernanda Borges"
   },
   heroImage: {
     src: "/images/hero-studio.svg",
-    alt: "Ambiente de estúdio de tatuagem com foco no processo artístico"
+    alt: "Ambiente de trabalho da tatuadora Fernanda Borges em Pinheiros, SP"
   }
 };
 

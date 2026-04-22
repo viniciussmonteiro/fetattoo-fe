@@ -1,14 +1,15 @@
 import styles from "./SocialLinks.module.css";
-import { socialLinks } from "@/data/socialLinks";
+import { socialLinks as fallbackSocialLinks, type SocialLink } from "@/data/socialLinks";
 
 type SocialLinksProps = {
   direction?: "row" | "column";
+  links?: SocialLink[];
 };
 
-export function SocialLinks({ direction = "row" }: SocialLinksProps) {
+export function SocialLinks({ direction = "row", links = fallbackSocialLinks }: SocialLinksProps) {
   return (
     <ul className={`${styles.list} ${direction === "column" ? styles.column : ""}`.trim()} aria-label="Redes sociais">
-      {socialLinks.map((link) => {
+      {links.map((link) => {
         const isExternal = link.href.startsWith("http");
 
         return (

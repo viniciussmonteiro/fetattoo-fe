@@ -1,10 +1,10 @@
 import Link from "next/link";
 import styles from "./PortfolioFilters.module.css";
 import type { PortfolioCategory } from "@/data/portfolio";
-import { portfolioCategories } from "@/data/portfolio";
 
 type PortfolioFiltersProps = {
   selectedCategory: "Todas" | PortfolioCategory;
+  categories: Array<"Todas" | PortfolioCategory>;
   healedOnly: boolean;
   beforeAfterOnly: boolean;
   featuredOnly: boolean;
@@ -38,11 +38,17 @@ function buildHref(
   return query ? `/portfolio?${query}` : "/portfolio";
 }
 
-export function PortfolioFilters({ selectedCategory, healedOnly, beforeAfterOnly, featuredOnly }: PortfolioFiltersProps) {
+export function PortfolioFilters({
+  selectedCategory,
+  categories,
+  healedOnly,
+  beforeAfterOnly,
+  featuredOnly
+}: PortfolioFiltersProps) {
   return (
     <section className={styles.wrap} aria-label="Filtros da galeria">
       <div className={styles.group}>
-        {portfolioCategories.map((category) => {
+        {categories.map((category) => {
           const active = category === selectedCategory;
           return (
             <Link

@@ -14,9 +14,7 @@ export function AdminForm({ title, description, children }: AdminFormProps) {
         <h2>{title}</h2>
         {description ? <p>{description}</p> : null}
       </header>
-      <form className={styles.form} action="#" method="post">
-        {children}
-      </form>
+      <div className={styles.form}>{children}</div>
     </section>
   );
 }

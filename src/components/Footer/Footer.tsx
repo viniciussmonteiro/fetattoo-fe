@@ -1,20 +1,26 @@
 import Link from "next/link";
 import styles from "./Footer.module.css";
-import { navigationLinks, artistProfile } from "@/data/artist";
+import { navigationLinks, artistProfile as fallbackArtistProfile, type ArtistProfile } from "@/data/artist";
 import { SocialLinks } from "@/components/SocialLinks/SocialLinks";
+import { socialLinks as fallbackSocialLinks, type SocialLink } from "@/data/socialLinks";
 
-export function Footer() {
+type FooterProps = {
+  profile?: ArtistProfile;
+  socialLinks?: SocialLink[];
+};
+
+export function Footer({ profile = fallbackArtistProfile, socialLinks = fallbackSocialLinks }: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <section className={styles.col} aria-label="Informações da artista">
-          <h2 className={styles.title}>{artistProfile.name}</h2>
+          <h2 className={styles.title}>{profile.name}</h2>
           <p className={styles.text}>
-            Estúdio em {artistProfile.neighborhood}, {artistProfile.city}. Atendimento com hora marcada e projeto personalizado.
+            Estúdio em {profile.neighborhood}, {profile.city}. Atendimento com hora marcada e projeto personalizado.
           </p>
-          <SocialLinks />
+          <SocialLinks links={socialLinks} />
         </section>
 
         <section className={styles.col} aria-label="Navegação">
@@ -49,13 +55,13 @@ export function Footer() {
           <h2 className={styles.title}>Contato e políticas</h2>
           <ul className={styles.linkList}>
             <li>
-              <a className={styles.link} href={artistProfile.whatsappUrl} target="_blank" rel="noreferrer">
-                WhatsApp: {artistProfile.phone}
+              <a className={styles.link} href={profile.whatsappUrl} target="_blank" rel="noreferrer">
+                WhatsApp: {profile.phone}
               </a>
             </li>
             <li>
-              <a className={styles.link} href={`mailto:${artistProfile.email}`}>
-                {artistProfile.email}
+              <a className={styles.link} href={`mailto:${profile.email}`}>
+                {profile.email}
               </a>
             </li>
             <li>
@@ -75,7 +81,7 @@ export function Footer() {
       <div className={styles.bottomBar}>
         <div className="container">
           <p className={styles.copyright}>
-            © {year} {artistProfile.name}. Todos os direitos reservados.
+            © {year} {profile.name}. Todos os direitos reservados.
           </p>
         </div>
       </div>

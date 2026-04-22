@@ -11,7 +11,7 @@ export const testimonials: Testimonial[] = [
     id: 1,
     name: "Marina L.",
     comment:
-      "A Ana transformou minha ideia em uma arte elegante. Atendimento super cuidadoso do briefing ao pós-procedimento.",
+      "A Fernanda transformou minha ideia em uma peça forte e bem resolvida. Atendimento cuidadoso do briefing ao pós-procedimento.",
     source: "Print autorizado via Instagram",
     image: "/images/testimonials/client-1.svg"
   },

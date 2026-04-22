@@ -1,175 +1,128 @@
-# Ana Noir Tattoo - Portfólio Profissional
+# Fernanda Borges - Front-end
 
-Projeto em **Node.js + Next.js (App Router) + TypeScript + CSS puro/CSS Modules** para um site de portfólio de tatuadora com foco em:
-
-- identidade visual forte e premium
-- galeria profissional com filtros
-- conversão para agendamento
-- base escalável para CMS, banco, storage e painel admin
-
-## Stack
+Front-end do site de portfólio da tatuadora **Fernanda Borges**, construído com:
 
 - Next.js (App Router)
-- React
 - TypeScript
-- CSS global + CSS Modules
-- `next/image` para otimização de imagens
+- CSS puro / CSS Modules
+- `next/image`
 
-## Funcionalidades implementadas
+## Escopo atual
 
-### Site público
-- Home completa com:
-  - Hero com prioridade de carregamento da imagem principal
-  - estilos em destaque
-  - prévia do portfólio
-  - sobre da artista
-  - serviços e estilos atendidos
-  - processo de atendimento
-  - depoimentos
-  - FAQ resumido
-  - CTA e contato rápido
-- Portfólio com:
-  - filtros por categoria
-  - filtros de cicatrizadas / antes-depois / destaque
-  - grid responsivo com cards ricos em informações
-- Páginas institucionais:
-  - `/sobre`
-  - `/faq` (accordion acessível com `details/summary`)
-  - `/cuidados`
-  - `/contato` com formulário + WhatsApp + redes + mapa
+### Público
+- Home, Portfólio, Sobre, FAQ, Cuidados, Contato
+- SEO básico por página (metadata)
+- Acessibilidade básica (estrutura semântica, labels, alt, navegação clara)
+- Performance com imagem hero prioritária e lazy loading fora da dobra
 
-### Área administrativa (base mock)
-- Rotas em `/admin` com layout separado (sidebar + topbar)
-- Dashboard inicial
-- Gestão mock de:
-  - portfólio
-  - bio
-  - redes sociais
+### Admin
+- Login real integrado ao back-end (`/login`)
+- Sessão via cookie `HttpOnly`
+- Guard de rota no layout de `/admin`
+- Logout funcional
+- CRUD integrado ao back-end para:
+  - Dashboard
+  - Bio
+  - Redes sociais
   - FAQ
-  - depoimentos
-  - configurações
+  - Depoimentos
+  - Portfólio
+  - Configurações gerais
+  - Mensagens de contato (status)
+  - Fotos do portfólio (adicionar, remover e definir capa)
 
-### Base para integrações futuras
-- Repositórios e serviços em `src/lib/server` e `src/lib/repositories`
-- Hooks iniciais em `src/hooks`
-- Rotas API mock em `src/app/api` para:
-  - contato
-  - portfólio
-  - bio
-  - faq
-  - depoimentos
-  - redes sociais
+## Integração com back-end
 
-## Estrutura principal
+O front usa `BACKEND_API_URL` para comunicação com o `fetattoo-be`.
 
-```txt
-src/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx
-│   ├── portfolio/page.tsx
-│   ├── sobre/page.tsx
-│   ├── contato/page.tsx
-│   ├── faq/page.tsx
-│   ├── cuidados/page.tsx
-│   ├── admin/
-│   └── api/
-├── components/
-│   ├── Header/
-│   ├── Footer/
-│   ├── Button/
-│   ├── SectionTitle/
-│   ├── Container/
-│   ├── Hero/
-│   ├── Portfolio*/
-│   ├── FeaturedStyles/
-│   ├── HomePortfolioPreview/
-│   ├── AboutPreview/
-│   ├── FAQPreview/
-│   └── Admin*/
-├── data/
-│   ├── portfolio.ts
-│   ├── faq.ts
-│   ├── testimonials.ts
-│   ├── artist.ts
-│   ├── services.ts
-│   ├── socialLinks.ts
-│   ├── process.ts
-│   └── care.ts
-├── hooks/
-├── lib/
-│   ├── metadata.ts
-│   ├── server/
-│   └── repositories/
-└── styles/
-    ├── reset.css
-    ├── variables.css
-    ├── typography.css
-    └── utilities.css
-```
+- Rotas públicas são consumidas por repositórios server-side.
+- Rotas administrativas usam proxy interno em `/api/admin/[...path]`, que injeta o token da sessão.
+- Auth no front:
+  - `POST /api/auth/login`
+  - `GET /api/auth/me`
+  - `POST /api/auth/logout`
 
-## Rodando localmente
+## Variáveis de ambiente
 
-### 1. Instalar dependências
-
-```bash
-npm install
-```
-
-Se ocorrer erro de permissão de cache no Windows (`EPERM`), use:
-
-```bash
-npm config set cache .npm-cache --location=project
-npm install
-```
-
-### 2. Rodar em desenvolvimento
-
-```bash
-npm run dev
-```
-
-Acesse: `http://localhost:3000`
-
-### 3. Configurar variáveis de ambiente
-
-Copie `.env.example` para `.env.local`:
+Crie `.env.local` a partir de `.env.example`:
 
 ```bash
 cp .env.example .env.local
 ```
 
-Variáveis importantes:
+`fetattoo-fe/.env.example`:
 
-- `NEXT_PUBLIC_SITE_URL`: URL canônica usada em metadata/SEO
-- `BACKEND_API_URL`: URL do back-end para proxy de integração da rota `/api/contact`
+- `NEXT_PUBLIC_SITE_URL` URL canônica do front (SEO)
+- `BACKEND_API_URL` URL do back-end (ex.: `http://localhost:4000`)
 
-### 4. Build de produção
+## Rodando localmente
+
+### 1) Instalar dependências
+
+```bash
+npm install
+```
+
+### 2) Rodar em desenvolvimento
+
+```bash
+npm run dev
+```
+
+Front: [http://localhost:3000](http://localhost:3000)
+
+### 3) Build de produção
 
 ```bash
 npm run build
 npm run start
 ```
 
-### 5. Lint
+### 4) Lint
 
 ```bash
 npm run lint
 ```
 
-## SEO, acessibilidade e performance
+## Fluxo de login admin
 
-- Metadata por página
-- Estrutura semântica com headings claros
-- Alt descritivo nas imagens
-- Labels em formulários
-- Contraste e foco visível
-- Mobile-first
-- Lazy loading em imagens fora da primeira dobra
-- `priority` na imagem principal da Home
+1. Acesse `/login`
+2. Faça login com usuário admin seedado no back-end
+3. O token JWT fica em cookie `HttpOnly`
+4. Rotas `/admin/*` exigem sessão válida
 
-## Observações
+## Upload de fotos no admin
 
-- O projeto está pronto para desenvolvimento local.
-- O painel admin e as APIs internas continuam em modo mock, com arquitetura preparada para CRUD real.
-- A rota de contato do front está preparada para integrar com o back-end (`BACKEND_API_URL`) sem expor o endpoint público diretamente ao navegador.
+- Em `Admin > Portfólio > Editar item`, seção **Fotos do portfólio**:
+  - você pode enviar arquivo (`JPG`, `PNG`, `WEBP`, `AVIF`, até `5MB`)
+  - ou informar uma URL pública de imagem
+  - definir capa e remover imagens já cadastradas
+- Upload local é salvo em `public/uploads/tattoos`.
+- Essas imagens são ignoradas pelo Git (`public/uploads` no `.gitignore`).
+
+## Fallback de dados
+
+- Quando `BACKEND_API_URL` **não** está configurada:
+  - páginas públicas usam fallback local (dados mockados do `src/data`)
+  - rotas/proxy admin retornam erro informando ausência da configuração
+
+## Estrutura principal
+
+```txt
+src/
+├── app/
+│   ├── admin/
+│   ├── api/
+│   ├── login/
+│   └── ...
+├── components/
+├── data/
+├── hooks/
+├── lib/
+│   ├── api/
+│   ├── auth/
+│   ├── repositories/
+│   └── server/
+├── styles/
+└── types/
+```

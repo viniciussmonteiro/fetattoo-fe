@@ -1,15 +1,17 @@
 import styles from "./cuidados.module.css";
 import { createPageMetadata } from "@/lib/metadata";
-import { bookingPolicy, careBlocks } from "@/data/care";
+import { getBookingPolicy, getCareBlocks } from "@/lib/repositories/content-repository";
 
 export const metadata = createPageMetadata({
   title: "Cuidados e Políticas",
   description:
-    "Informações de higiene, materiais, preparo pré-sessão, cuidados pós-tatuagem e políticas de agendamento da Ana Noir Tattoo.",
+    "Informações de higiene, preparo e cuidados pós-tatuagem no atendimento da Fernanda Borges em Pinheiros, SP.",
   path: "/cuidados"
 });
 
-export default function CuidadosPage() {
+export default async function CuidadosPage() {
+  const [careBlocks, bookingPolicy] = await Promise.all([getCareBlocks(), getBookingPolicy()]);
+
   return (
     <>
       <section className="pageIntro">

@@ -1,19 +1,21 @@
 import Image from "next/image";
 import styles from "./contato.module.css";
 import { createPageMetadata } from "@/lib/metadata";
-import { artistProfile } from "@/data/artist";
 import { ContactForm } from "@/components/ContactForm/ContactForm";
 import { SocialLinks } from "@/components/SocialLinks/SocialLinks";
 import { Button } from "@/components/Button/Button";
+import { getArtistProfile, getSocialLinks } from "@/lib/repositories/content-repository";
 
 export const metadata = createPageMetadata({
   title: "Agendamento e Contato",
   description:
-    "Agende sua sessão com Ana Noir Tattoo: formulário de orçamento, WhatsApp, Instagram, e-mail e informações do estúdio.",
+    "Agende sua sessão com Fernanda Borges: formulário de orçamento, WhatsApp, Instagram, TikTok e Threads.",
   path: "/contato"
 });
 
-export default function ContatoPage() {
+export default async function ContatoPage() {
+  const [artistProfile, socialLinks] = await Promise.all([getArtistProfile(), getSocialLinks()]);
+
   return (
     <>
       <section className="pageIntro">
@@ -40,7 +42,7 @@ export default function ContatoPage() {
               Local: {artistProfile.neighborhood}, {artistProfile.city}
             </p>
             <p>Horário: {artistProfile.workingHours}</p>
-            <SocialLinks direction="column" />
+            <SocialLinks direction="column" links={socialLinks} />
             <Button href={artistProfile.whatsappUrl} target="_blank" rel="noreferrer" variant="primary">
               Agendar pelo WhatsApp
             </Button>
@@ -53,7 +55,7 @@ export default function ContatoPage() {
       <section className="section">
         <div className={`container ${styles.mapCard}`}>
           <div>
-            <h2>Estúdio em São Paulo</h2>
+            <h2>Atendimento em Pinheiros, SP</h2>
             <p>
               Local de fácil acesso na {artistProfile.neighborhood}. Endereço completo compartilhado após confirmação do
               agendamento.
@@ -66,7 +68,7 @@ export default function ContatoPage() {
           <div className={styles.mapImageWrap}>
             <Image
               src="/images/map-studio.svg"
-              alt="Mapa ilustrativo da região da Vila Mariana em São Paulo"
+              alt="Mapa ilustrativo da região de Pinheiros em São Paulo"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
               loading="lazy"

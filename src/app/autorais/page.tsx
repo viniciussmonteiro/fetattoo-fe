@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
   title: "Projetos autorais",
-  description: "Espaço para coleções autorais da Ana Noir Tattoo com conceito e narrativa visual.",
+  description: "Espaço para projetos autorais da Fernanda Borges em linguagem Blackwork e Black & Red.",
   path: "/autorais"
 });
 

@@ -5,33 +5,29 @@ export type ServiceInfo = {
 
 export const serviceHighlights: ServiceInfo[] = [
   {
-    title: "Fine line",
-    description: "Traços delicados com leitura limpa e composição elegante."
-  },
-  {
     title: "Blackwork",
-    description: "Contraste forte com acabamento preciso em preto sólido."
+    description: "Composição em preto com contraste forte e leitura sólida."
   },
   {
-    title: "Floral",
-    description: "Botânicos autorais desenvolvidos para o fluxo do corpo."
+    title: "Black & Red",
+    description: "Projetos autorais com base escura e acentos em vermelho."
   },
   {
-    title: "Projetos grandes",
-    description: "Fechamentos e projetos em etapas, com direção artística consistente."
+    title: "Projetos autorais",
+    description: "Direção visual personalizada para cada composição."
   }
 ];
 
 export const servicesOffered: string[] = [
-  "Fine line, blackwork e floral autoral",
-  "Tatuagem personalizada baseada em briefing",
-  "Flash day com seleção mensal",
-  "Projetos autorais de média e grande escala",
-  "Cover-up mediante avaliação da peça anterior"
+  "Blackwork autoral",
+  "Black & Red com composição personalizada",
+  "Projetos autorais desenvolvidos por briefing",
+  "Flash com curadoria da artista",
+  "Cover-up mediante avaliação técnica"
 ];
 
 export const servicesNotOffered: string[] = [
   "Cópia exata de tatuagem de outro artista",
-  "Projetos fora da linha estética acordada",
+  "Projetos fora da linguagem Blackwork / Black & Red",
   "Atendimento sem consulta prévia de viabilidade"
 ];

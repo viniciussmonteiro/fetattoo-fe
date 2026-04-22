@@ -12,7 +12,7 @@ export function PortfolioHero({ total }: PortfolioHeroProps) {
           id="portfolio-hero-title"
           eyebrow="Portfólio completo"
           title="Galeria autoral com foco em técnica e composição"
-          description="Navegue por categorias como fine line, blackwork, floral, anime e projetos maiores. Cada card mostra estilo, região do corpo e técnica aplicada."
+          description="Navegue por categorias de Blackwork, Black & Red, flash autoral e projetos fechados. Cada card mostra estilo, região do corpo e técnica aplicada."
         />
         <p className="sectionLead">Mostrando {total} trabalhos</p>
       </div>

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import styles from "./faq.module.css";
 import { createPageMetadata } from "@/lib/metadata";
-import { faqItems } from "@/data/faq";
 import { FAQAccordion } from "@/components/FAQAccordion/FAQAccordion";
+import { getFaqItems } from "@/lib/repositories/content-repository";
 
 export const metadata = createPageMetadata({
   title: "FAQ",
@@ -10,7 +10,9 @@ export const metadata = createPageMetadata({
   path: "/faq"
 });
 
-export default function FaqPage() {
+export default async function FaqPage() {
+  const faqItems = await getFaqItems();
+
   return (
     <>
       <section className="pageIntro">

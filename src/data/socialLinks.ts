@@ -10,18 +10,24 @@ export const socialLinks: SocialLink[] = [
     id: "instagram",
     label: "Instagram oficial",
     shortLabel: "Instagram",
-    href: "https://instagram.com/ananoirtattoo"
+    href: "https://www.instagram.com/fe.borgesink/"
   },
   {
     id: "whatsapp",
     label: "WhatsApp para agendamento",
     shortLabel: "WhatsApp",
-    href: "https://wa.me/5511999999999?text=Oi%2C%20Ana%20Noir!%20Quero%20agendar%20uma%20tatuagem."
+    href: "https://api.whatsapp.com/message/R4LIOWS74LHWP1?autoload=1&app_absent=0&utm_source=ig"
   },
   {
-    id: "email",
-    label: "E-mail profissional",
-    shortLabel: "E-mail",
-    href: "mailto:contato@ananoirtattoo.com.br"
+    id: "tiktok",
+    label: "TikTok oficial",
+    shortLabel: "TikTok",
+    href: "https://www.tiktok.com/@fe.borgesink"
+  },
+  {
+    id: "threads",
+    label: "Threads oficial",
+    shortLabel: "Threads",
+    href: "https://www.threads.com/@fe.borgesink?xmt=AQF0YkYKPf268JqfYjS9bSKqjNZYUVfv0-EtTXH4dBzUuKA"
   }
 ];

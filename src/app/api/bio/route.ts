@@ -1,5 +1,5 @@
 import { getArtistProfile } from "@/lib/repositories/content-repository";
-import { apiSuccess } from "@/lib/server/api-response";
+import { apiFailure, apiSuccess } from "@/lib/server/api-response";
 
 export async function GET() {
   const profile = await getArtistProfile();
@@ -7,6 +7,6 @@ export async function GET() {
 }
 
 export async function PUT(request: Request) {
-  const payload = await request.json();
-  return apiSuccess(payload);
+  await request.text();
+  return apiFailure("Use os endpoints protegidos em /api/admin/artist-profile.", 405);
 }

@@ -7,8 +7,8 @@ type MetadataInput = {
   noIndex?: boolean;
 };
 
-const siteName = "Ana Noir Tattoo";
-const defaultSiteUrl = "https://ananoirtattoo.com";
+const siteName = "Fernanda Borges";
+const defaultSiteUrl = "http://localhost:3000";
 
 function resolveSiteUrl() {
   const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim();
@@ -33,14 +33,14 @@ export const defaultMetadata: Metadata = {
     template: `%s | ${siteName}`
   },
   description:
-    "Portfólio profissional da tatuadora Ana Noir Tattoo. Fine line, blackwork e floral com atendimento personalizado em São Paulo.",
+    "Portfólio profissional da tatuadora Fernanda Borges. Blackwork e Black & Red com atendimento em Pinheiros, SP.",
   openGraph: {
     type: "website",
     locale: "pt_BR",
     siteName,
     url: siteUrl,
-    title: `${siteName} | Portfólio de Tatuagem em São Paulo`,
-    description: "Tatuagens autorais com traço delicado, composição elegante e identidade artística."
+    title: `${siteName} | Blackwork em Pinheiros, SP`,
+    description: "Tatuagens autorais em Blackwork e Black & Red com linguagem visual forte e profissional."
   },
   alternates: {
     canonical: "/"

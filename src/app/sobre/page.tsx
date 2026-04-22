@@ -1,19 +1,21 @@
 import styles from "./sobre.module.css";
 import { createPageMetadata } from "@/lib/metadata";
-import { artistProfile } from "@/data/artist";
 import { AboutSection } from "@/components/AboutSection/AboutSection";
 import { ServiceSection } from "@/components/ServiceSection/ServiceSection";
 import { CTASection } from "@/components/CTASection/CTASection";
 import { SocialLinks } from "@/components/SocialLinks/SocialLinks";
+import { getArtistProfile, getSocialLinks } from "@/lib/repositories/content-repository";
 
 export const metadata = createPageMetadata({
   title: "Sobre",
   description:
-    "Conheça a trajetória, referências artísticas e forma de atendimento da tatuadora Ana Noir Tattoo em São Paulo.",
+    "Conheça a linguagem artística e o formato de atendimento da tatuadora Fernanda Borges em Pinheiros, SP.",
   path: "/sobre"
 });
 
-export default function SobrePage() {
+export default async function SobrePage() {
+  const [artistProfile, socialLinks] = await Promise.all([getArtistProfile(), getSocialLinks()]);
+
   return (
     <>
       <section className="pageIntro">
@@ -29,7 +31,7 @@ export default function SobrePage() {
 
       <section className="section">
         <div className="container">
-          <AboutSection />
+          <AboutSection profile={artistProfile} />
         </div>
       </section>
 
@@ -38,8 +40,7 @@ export default function SobrePage() {
           <article className={styles.card}>
             <h2>Experiência</h2>
             <p>
-              Mais de {artistProfile.experienceYears} anos no mercado com foco em execução limpa, atendimento transparente e
-              construção de projetos em etapas quando necessário.
+              {artistProfile.experienceSummary}
             </p>
           </article>
           <article className={styles.card}>
@@ -47,10 +48,12 @@ export default function SobrePage() {
             <p>{artistProfile.inspirations.join(", ")}. O objetivo é criar peças delicadas e marcantes ao mesmo tempo.</p>
           </article>
           <article className={styles.card}>
-            <h2>Atendimento em {artistProfile.city}</h2>
+            <h2>
+              Atendimento em {artistProfile.neighborhood}, {artistProfile.city}
+            </h2>
             <p>
-              Estúdio localizado na {artistProfile.neighborhood}, com ambiente reservado, assepsia rigorosa e agenda por horário
-              para melhor experiência.
+              Atendimento na região de {artistProfile.neighborhood}, com ambiente reservado, assepsia rigorosa e agenda por
+              horário para melhor experiência.
             </p>
           </article>
         </div>
@@ -60,7 +63,7 @@ export default function SobrePage() {
         <div className={`container ${styles.socialCard}`}>
           <h2>Redes e contato profissional</h2>
           <p>Conheça bastidores, trabalhos recentes e datas de agenda diretamente nos canais oficiais.</p>
-          <SocialLinks />
+          <SocialLinks links={socialLinks} />
         </div>
       </section>
 

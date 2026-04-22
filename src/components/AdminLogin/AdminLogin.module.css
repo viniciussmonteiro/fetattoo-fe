@@ -1,0 +1,56 @@
+.wrapper {
+  min-height: calc(100vh - 220px);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.card {
+  width: min(100%, 420px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  padding: 1.4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card h1 {
+  font-size: clamp(1.5rem, 1.1rem + 2vw, 2rem);
+}
+
+.lead {
+  color: var(--text-secondary);
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.field input {
+  min-height: 2.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.7rem;
+  background: var(--surface-2);
+}
+
+.submit {
+  min-height: 2.8rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.submit:disabled {
+  opacity: 0.7;
+}
+
+.error {
+  color: #b3261e;
+  font-weight: 600;
+}
+

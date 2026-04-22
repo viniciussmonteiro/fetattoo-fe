@@ -1,4 +1,4 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1200' role='img' aria-label='Retrato artístico da tatuadora Ana Noir'>
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1200' role='img' aria-label='Retrato artístico da tatuadora Fernanda Borges'>
   <defs>
     <linearGradient id='pBg' x1='0' y1='0' x2='1' y2='1'>
       <stop offset='0%' stop-color='#fefbf6'/>
@@ -13,5 +13,5 @@
   <path d='M430 500 C 470 540, 530 540, 570 500' stroke='#2d2219' stroke-width='10' fill='none' stroke-linecap='round'/>
   <path d='M330 335 C 430 235, 570 235, 670 335' stroke='#2d2219' stroke-width='34' fill='none' stroke-linecap='round'/>
   <rect x='110' y='110' width='780' height='980' rx='28' fill='none' stroke='#c9b49d' stroke-width='5'/>
-  <text x='120' y='1060' font-family='Georgia, serif' font-size='56' fill='#241b14'>Ana Noir Tattoo</text>
+  <text x='120' y='1060' font-family='Georgia, serif' font-size='56' fill='#241b14'>Fernanda Borges</text>
 </svg>

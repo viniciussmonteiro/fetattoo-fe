@@ -25,31 +25,12 @@ export async function GET(_request: Request, context: RouteContext) {
 }
 
 export async function PUT(request: Request, context: RouteContext) {
-  const { id } = await context.params;
-  const numericId = Number(id);
-
-  if (!Number.isInteger(numericId) || numericId <= 0) {
-    return apiFailure("ID inválido.", 422);
-  }
-
-  const payload = await request.json();
-
-  return apiSuccess({
-    id: numericId,
-    ...payload
-  });
+  await context.params;
+  await request.text();
+  return apiFailure("Use os endpoints protegidos em /api/admin/tattoos/:id.", 405);
 }
 
 export async function DELETE(_request: Request, context: RouteContext) {
-  const { id } = await context.params;
-  const numericId = Number(id);
-
-  if (!Number.isInteger(numericId) || numericId <= 0) {
-    return apiFailure("ID inválido.", 422);
-  }
-
-  return apiSuccess({
-    removed: true,
-    id: numericId
-  });
+  await context.params;
+  return apiFailure("Use os endpoints protegidos em /api/admin/tattoos/:id.", 405);
 }

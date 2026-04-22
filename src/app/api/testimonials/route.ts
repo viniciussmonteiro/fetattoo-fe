@@ -1,5 +1,5 @@
 import { getTestimonials } from "@/lib/repositories/content-repository";
-import { apiSuccess } from "@/lib/server/api-response";
+import { apiFailure, apiSuccess } from "@/lib/server/api-response";
 
 export async function GET() {
   const items = await getTestimonials();
@@ -7,6 +7,6 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const payload = await request.json();
-  return apiSuccess(payload, 201);
+  await request.text();
+  return apiFailure("Use os endpoints protegidos em /api/admin/testimonials.", 405);
 }

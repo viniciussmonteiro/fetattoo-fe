@@ -8,7 +8,7 @@ import "@/styles/utilities.css";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
 import { defaultMetadata } from "@/lib/metadata";
-import { artistProfile } from "@/data/artist";
+import { getArtistProfile, getSocialLinks } from "@/lib/repositories/content-repository";
 
 const headingFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -24,16 +24,18 @@ const bodyFont = Manrope({
 
 export const metadata: Metadata = defaultMetadata;
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const [artistProfile, socialLinks] = await Promise.all([getArtistProfile(), getSocialLinks()]);
+
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${headingFont.variable} ${bodyFont.variable}`}>
         <a href="#conteudo" className="skipLink">
           Pular para conteúdo principal
         </a>
-        <Header />
+        <Header profile={artistProfile} />
         <main id="conteudo">{children}</main>
-        <Footer />
+        <Footer profile={artistProfile} socialLinks={socialLinks} />
         <a
           href={artistProfile.whatsappUrl}
           target="_blank"

@@ -1,8 +1,12 @@
 import Image from "next/image";
 import styles from "./Testimonials.module.css";
-import { testimonials } from "@/data/testimonials";
+import { testimonials as fallbackTestimonials, type Testimonial } from "@/data/testimonials";
 
-export function Testimonials() {
+type TestimonialsProps = {
+  items?: Testimonial[];
+};
+
+export function Testimonials({ items = fallbackTestimonials }: TestimonialsProps) {
   return (
     <section className={styles.section} aria-labelledby="testimonials-title">
       <div>
@@ -13,7 +17,7 @@ export function Testimonials() {
       </div>
 
       <div className={styles.grid}>
-        {testimonials.map((item) => (
+        {items.map((item) => (
           <article className={styles.card} key={item.id}>
             <div className={styles.header}>
               {item.image ? (
